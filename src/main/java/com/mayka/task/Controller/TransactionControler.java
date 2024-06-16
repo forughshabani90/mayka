@@ -1,10 +1,35 @@
 package com.mayka.task.Controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.mayka.task.model.TransactionHistory;
+import com.mayka.task.repository.TransactionalRepository;
+import com.mayka.task.service.TransactionService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("transactional")
 public class TransactionControler {
+TransactionalRepository transactionalRepository;
+TransactionService transactionService;
+
+@GetMapping
+public List<TransactionHistory> get(){
+    return transactionalRepository.findAll();
+}
+@PostMapping
+    public TransactionHistory save(@RequestBody TransactionHistory transactionHistory){
+    return transactionalRepository.save(transactionHistory);
+}
+@DeleteMapping
+    public void delet(@PathVariable("id")Long id){
+    transactionalRepository.deleteById(id);
+}
+@PutMapping
+    public TransactionHistory update(){
+
+}
+
+
 
 }
