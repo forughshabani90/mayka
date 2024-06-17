@@ -16,7 +16,7 @@ public class CustomService {
 
     public Customer update(Customer customerRequest, Long id) {
         Customer customer;
-        Optional<Customer> customerData = customRepository.findById(id).get();
+       Optional <Customer> customerData = customRepository.findById(id);
         if (customerData.isPresent()) {
             customer = customerData.get();
         }
@@ -38,5 +38,6 @@ public class CustomService {
        if (customerRequest.getEmail()!=null){
            customer.setEmail(customerRequest.getEmail());
        }
+       return customRepository.save(customer);
     }
 }

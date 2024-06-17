@@ -28,8 +28,8 @@ public class CustomControler {
         customRepository.deleteById(id);
     }
     @PutMapping
-    public Customer update(){
-        return customService.
+    public Customer update(@PathVariable("{id}") Long id,@RequestBody Customer customer){
+        return customService.update(customer,id);
     }
 
 }
