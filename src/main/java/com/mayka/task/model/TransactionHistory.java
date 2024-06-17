@@ -15,7 +15,7 @@ public class TransactionHistory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int deposit;
-    private String withDrawal;
+    private int withDrawal;
     private Date date;
     private int customerId;
 }

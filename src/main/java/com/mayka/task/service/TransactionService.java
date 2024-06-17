@@ -24,10 +24,10 @@ public class TransactionService {
         if (transactRequest.getCustomerId() != 0 && transactRequest.getCustomerId() > 0) {
             transact.setCustomerId(transactRequest.getCustomerId());
         }
-        if (transactRequest.getDeposit() != 0 && transactRequest.getDeposit() != 0) {
+        if (transactRequest.getDeposit() != 0 && transactRequest.getDeposit() > 0) {
             transact.setDeposit(transactRequest.getDeposit());
         }
-        if (transactRequest.getWithDrawal() != null) {
+        if (transactRequest.getWithDrawal() != 0 && transactRequest.getWithDrawal()>0) {
             transact.setWithDrawal(transactRequest.getWithDrawal());
         }
         return transactionalRepository.save(transact);

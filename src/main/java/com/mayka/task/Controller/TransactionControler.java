@@ -3,6 +3,7 @@ package com.mayka.task.Controller;
 import com.mayka.task.model.TransactionHistory;
 import com.mayka.task.repository.TransactionalRepository;
 import com.mayka.task.service.TransactionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,7 +11,9 @@ import java.util.List;
 @RestController
 @RequestMapping("transactional")
 public class TransactionControler {
+    @Autowired
     TransactionalRepository transactionalRepository;
+    @Autowired
     TransactionService transactionService;
 
     @GetMapping
